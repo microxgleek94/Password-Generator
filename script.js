@@ -25,8 +25,18 @@ var userUpper = confirm("Do you want to include uppercase characters?");
   console.log(`userUpper input ${userUpper}`);
 
 
-// defining the variables that will create the random password
+
+//This calls the generatePassword function
+var password = generatePassword();
+
+
+
+// This function will create a random password based on user input
+function generatePassword() {
+
+ // defining the variables that will create the random password
 var passwordLen = "0";
+
 var numbers = "0123456789"; 
 var specials = "@!#$%^&*()_+"; 
 var lowers = "abcdefghijklmnopqrstuvwxyz"; 
@@ -42,16 +52,8 @@ var randomPasswordLen = "";
   console.log(`RandomLen: ${randomPasswordLen}`);
 
 
-//This calls the generatePassword function
-var password = generatePassword();
-
-
-// This function will create a random password based on user input
-function generatePassword() {
-
- 
 for (var i = 0; i < length; i++ ) {
-    randomPasswordLen += numbers.charAt(Math.floor(Math.random() * numbersLen));
+    randomPasswordLen += randomPasswordLen.charAt(Math.floor(Math.random() * randomPasswordLen));
     console.log(passwordLen);
   }
 
@@ -59,31 +61,20 @@ for (var i = 0; i < length; i++ ) {
 if (userNumber === true) {
   // add numbers to password
 }
-else if (userNumber === false) {
-  // do not add numbers 
-}
 if (userSpecial === true) {
   // add special characters to password
-}
-else if (userSpecial === false) {
-  // do not add special chracters
 }
 if (userLower === true) {
   // add lowercase characters to password
 }
-else if (userLower === false) {
-  // do not lowercase characters
-}
 if (userUpper === true) {
   // add uppercase letters to password
-}
-else if (userUpper === false) {
-  // do not add uppercase letters to password
 }
 else {
   alert("You need to pick at least one character type.");
 }
 
+  return randomPasswordLen;
 
 } // this is the end of the generatePassword function
 
